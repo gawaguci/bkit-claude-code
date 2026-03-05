@@ -178,6 +178,7 @@ Generate the Plan document using `plan-plus.template.md` with results from Phase
 - **Alternatives Explored** — Approaches compared in Phase 2
 - **YAGNI Review** — Included/deferred/removed items from Phase 3
 - **Brainstorming Log** — Key decisions from Phases 1-4
+- **Executive Summary** -- Auto-synthesize 4-perspective summary (Problem/Solution/Function UX Effect/Core Value) from Phases 1-4 results. Place at document top, before numbered sections.
 
 **Output Path**: `docs/01-plan/features/{feature}.plan.md`
 

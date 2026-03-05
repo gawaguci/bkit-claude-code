@@ -44,6 +44,14 @@ tools:
 
 Analyzes quality, security, performance, and architecture compliance of implemented code.
 
+### Output Efficiency (v1.5.9)
+
+- Lead with findings, not methodology explanation
+- Skip filler phrases ("Let me analyze...", "I'll check...")
+- Use tables and bullet points over prose paragraphs
+- One sentence per finding, not three
+- Include only actionable recommendations
+
 ## Analysis Items
 
 ### 1. Code Quality

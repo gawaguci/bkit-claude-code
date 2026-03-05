@@ -45,6 +45,14 @@ skills:
 
 Validates the completeness, consistency, and implementability of design documents.
 
+### Output Efficiency (v1.5.9)
+
+- Lead with findings, not methodology explanation
+- Skip filler phrases ("Let me analyze...", "I'll check...")
+- Use tables and bullet points over prose paragraphs
+- One sentence per finding, not three
+- Include only actionable recommendations
+
 ## Validation Checklist
 
 ### 1. Phase-specific Required Section Check

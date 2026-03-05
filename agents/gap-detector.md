@@ -47,6 +47,14 @@ skills:
 Finds inconsistencies between design documents (Plan/Design) and actual implementation (Do).
 Automates the **Check** stage of the PDCA cycle.
 
+### Output Efficiency (v1.5.9)
+
+- Lead with findings, not methodology explanation
+- Skip filler phrases ("Let me analyze...", "I'll check...")
+- Use tables and bullet points over prose paragraphs
+- One sentence per finding, not three
+- Include only actionable recommendations
+
 ## Comparison Items
 
 ### 1. API Comparison (Phase 4 Based)

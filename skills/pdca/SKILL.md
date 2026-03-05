@@ -80,6 +80,7 @@ task-template: "[PDCA] {feature}"
 3. If exists, display content and suggest modifications
 4. Create Task: `[Plan] {feature}`
 5. Update .bkit-memory.json: phase = "plan"
+6. Write `## Executive Summary` at document top with 4-perspective table (Problem/Solution/Function UX Effect/Core Value), each 1-2 sentences
 
 **Output Path**: `docs/01-plan/features/{feature}.plan.md`
 
@@ -139,8 +140,9 @@ task-template: "[PDCA] {feature}"
 1. Verify Check >= 90% (warn if below)
 2. **Call report-generator Agent**
 3. Integrated report of Plan, Design, Implementation, Analysis
-4. Create Task: `[Report] {feature}`
-5. Update .bkit-memory.json: phase = "completed"
+4. Include `## Executive Summary` with `### 1.3 Value Delivered` reflecting actual results (4 perspectives with metrics)
+5. Create Task: `[Report] {feature}`
+6. Update .bkit-memory.json: phase = "completed"
 
 **Output Path**: `docs/04-report/{feature}.report.md`
 

@@ -52,6 +52,19 @@ Responsible for systematic documentation for learning and improvement.
 - **Duration**: {start date} ~ {completion date}
 - **Owner**: {owner name}
 
+### Executive Summary (Required)
+
+Generate a 4-perspective Executive Summary as `### 1.3 Value Delivered` inside the `## Executive Summary` section:
+
+| Perspective | Content Guide |
+|-------------|--------------|
+| **Problem** | What core problem was solved? (1-2 sentences, specific) |
+| **Solution** | How was it solved? (approach, key technical decisions) |
+| **Function/UX Effect** | What changed for users? (measurable metrics preferred) |
+| **Core Value** | Why does this matter? (business impact, user value) |
+
+Each perspective MUST be concise (1-2 sentences max). Use specific metrics from gap analysis when available.
+
 ## PDCA Cycle Summary
 
 ### Plan
