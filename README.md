@@ -1,8 +1,8 @@
 # bkit - Vibecoding Kit
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-v2.1.63+-purple.svg)](https://docs.anthropic.com/en/docs/claude-code/getting-started)
-[![Version](https://img.shields.io/badge/Version-1.5.9-green.svg)](CHANGELOG.md)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-v2.1.71+-purple.svg)](https://code.claude.com)
+[![Version](https://img.shields.io/badge/Version-1.6.0-green.svg)](CHANGELOG.md)
 [![Author](https://img.shields.io/badge/Author-POPUP%20STUDIO-orange.svg)](https://popupstudio.ai)
 
 > **PDCA methodology + CTO-Led Agent Teams + AI coding assistant mastery for AI-native development**
@@ -36,8 +36,8 @@ bkit implements Context Engineering through three interconnected layers:
 
 | Layer | Components | Purpose |
 |-------|------------|---------|
-| **Domain Knowledge** | 27 Skills | Structured expert knowledge (phases, levels, specialized domains) |
-| **Behavioral Rules** | 16 Agents | Role-based constraints with model selection (opus/sonnet/haiku) |
+| **Domain Knowledge** | 28 Skills | Structured expert knowledge (phases, levels, specialized domains) |
+| **Behavioral Rules** | 21 Agents | Role-based constraints with model selection (opus/sonnet/haiku) |
 | **State Management** | 241 Functions | PDCA status, intent detection, ambiguity scoring, multi-feature context, team coordination |
 
 ### 5-Layer Hook System
@@ -60,6 +60,7 @@ Layer 5: Scripts (45 modules)    → Actual Node.js execution logic with unified
 
 ![bkit Features](images/bkit-features.png)
 
+- **Skills 2.0 Complete Integration (v1.6.0)** - 19 ENH items (ENH-85~103), Skill Evals framework with 28 eval definitions, Skill Classification (Workflow/Capability/Hybrid), A/B testing, template-validator, frontmatter hooks migration, context:fork deprecation, PM Agent Team integration
 - **Executive Summary & Preview UX (v1.5.9)** - Auto-generated 4-perspective summaries (Problem/Solution/Function & UX Effect/Core Value), AskUserQuestion with rich Markdown previews, ENH-74~81 CC v2.1.69 compatibility, 199 exports
 - **Studio Support & Path Registry (v1.5.8)** - Centralized state file path management (`lib/core/paths.js`), PDCA doc path registry, config cleanup (dead keys removed, missing keys added), state directory migration to `.bkit/{state,runtime,snapshots}/`, auto-migration with EXDEV fallback, 190 exports
 - **/simplify + /batch PDCA Integration (v1.5.7)** - CC built-in /simplify and /batch commands integrated into PDCA Check→Report flow, CC_COMMAND_PATTERNS 8-language awareness, HTTP Hooks documentation, English conversion for 3 stop scripts
@@ -82,8 +83,8 @@ Layer 5: Scripts (45 modules)    → Actual Node.js execution logic with unified
 - **9-Stage Development Pipeline** - From schema design to deployment
 - **3 Project Levels** - Starter (static), Dynamic (fullstack), Enterprise (microservices)
 - **Multilingual Support** - 8 languages (EN, KO, JA, ZH, ES, FR, DE, IT)
-- **27 Skills** - Domain-specific knowledge for various development scenarios
-- **16 Agents** - Specialized AI assistants including CTO-Led Team agents
+- **28 Skills** - Domain-specific knowledge for various development scenarios
+- **21 Agents** - Specialized AI assistants including CTO-Led Team and PM Team agents
 - **45 Scripts** - Hook execution with unified handlers (hooks-json-integration)
 - **241 Utility Functions** - 5 modular libraries with state management, intent detection, task tracking, team coordination
 - **Check-Act Iteration Loop** - Automatic gap analysis and fix cycles with max 5 iterations (90% threshold)
@@ -335,8 +336,9 @@ git commit -m "feat: customize bkit starter skill"
 /enterprise   # Microservices with K8s (Enterprise level)
 ```
 
-### PDCA Workflow (v1.4.4 - Skills-based)
+### PDCA Workflow (v1.6.0 - Skills 2.0)
 ```bash
+/pdca pm {feature}       # PM analysis & PRD generation (pre-Plan)
 /pdca plan {feature}     # Create plan document
 /pdca design {feature}   # Create design document
 /pdca do {feature}       # Implementation guide
@@ -373,15 +375,38 @@ CTO-Led Agent Teams enable parallel PDCA execution with multiple AI agents orche
 - Set environment variable: `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`
 - Claude Code v2.1.32+
 
-**Available Team Agents (5 new):**
+**Available Team Agents:**
 
-| Agent | Model | Role |
-|-------|-------|------|
-| cto-lead | opus | Team orchestration, PDCA workflow management |
-| frontend-architect | sonnet | UI/UX design, component architecture |
-| product-manager | sonnet | Requirements analysis, feature prioritization |
-| qa-strategist | sonnet | Test strategy, quality metrics coordination |
-| security-architect | opus | Vulnerability analysis, auth design review |
+| Team | Agent | Model | Role |
+|------|-------|-------|------|
+| CTO | cto-lead | opus | Team orchestration, PDCA workflow management |
+| CTO | frontend-architect | sonnet | UI/UX design, component architecture |
+| CTO | product-manager | sonnet | Requirements analysis, feature prioritization |
+| CTO | qa-strategist | sonnet | Test strategy, quality metrics coordination |
+| CTO | security-architect | opus | Vulnerability analysis, auth design review |
+| PM | pm-lead | opus | PM Team orchestration, PRD synthesis |
+| PM | pm-discovery | sonnet | Opportunity Solution Tree analysis |
+| PM | pm-strategy | sonnet | Value Proposition, Lean Canvas |
+| PM | pm-research | sonnet | Personas, competitors, market sizing |
+| PM | pm-prd | sonnet | PRD document generation |
+
+### PM Agent Team (v1.6.0)
+
+PM Agent Team runs **before** the Plan phase to produce a comprehensive PRD (Product Requirements Document) through automated product discovery.
+
+```bash
+# Run PM analysis before planning
+/pdca pm user-authentication
+
+# Then proceed with PDCA planning (PRD auto-referenced)
+/pdca plan user-authentication
+```
+
+**How it works:**
+1. pm-lead (opus) collects project context and git history
+2. Three agents run in parallel: discovery (Opportunity Solution Tree), strategy (JTBD + Lean Canvas), research (Personas + Competitors + TAM/SAM/SOM)
+3. pm-prd synthesizes all findings into an 8-section PRD at `docs/00-pm/{feature}.prd.md`
+4. Plan phase automatically references the PRD for higher-quality planning
 
 ---
 

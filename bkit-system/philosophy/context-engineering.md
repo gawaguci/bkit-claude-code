@@ -177,7 +177,7 @@ Skills provide **structured domain knowledge**.
 | **Checklists** | Clear completion criteria | Enables automation |
 | **Code Examples** | Ready-to-apply references | Consistent implementation |
 
-### 2. Behavioral Rules Layer (16 Agents)
+### 2. Behavioral Rules Layer (21 Agents)
 
 Agents define **role-based behavioral rules**.
 
@@ -708,7 +708,7 @@ flowchart TB
     subgraph StateLayer["State Management Layer"]
         PDS[".pdca-status.json<br/>matchRate, iterationCount, phase"]
         MEM[".bkit-memory<br/>activePdca, pdcaHistory, sessionCount"]
-        TASK["Task System<br/>[Plan]→[Design]→[Do]→[Check]→[Act]→[Report]"]
+        TASK["Task System<br/>[PM]→[Plan]→[Design]→[Do]→[Check]→[Act]→[Report]"]
     end
 
     UR --> SkillLayer
@@ -941,13 +941,13 @@ active → candidate (parity data) → deprecated (v1.6.x) → removed (v1.7.0+)
 | CC Feature | bkit v1.5.9 | bkit v1.6.0 | Migration |
 |---|:---:|:---:|---|
 | context:fork (native) | FR-03 custom (228 lines) | Native frontmatter | Deprecated, fallback retained |
-| Frontmatter hooks | N/A (hooks.json only) | 16 agents + 10 skills | Gradual migration |
+| Frontmatter hooks | N/A (hooks.json only) | 21 agents + 10 skills | Gradual migration |
 | Skill hot reload | Supported (passive) | Documented + guided | ENH-87 |
 | / invoke | Supported (27 skills) | Documented | ENH-96 |
 | Wildcard permissions | Not documented | Guided in bkit-rules | ENH-95 |
 | Skill Creator | N/A | Integrated workflow | ENH-97 |
 | Skill Evals | N/A | 27 evals + A/B testing | ENH-88, ENH-89 |
-| Skill Classification | N/A | 27 skills classified | ENH-90 |
+| Skill Classification | N/A | 28 skills classified | ENH-90 |
 | /loop + Cron | N/A | PDCA auto-monitoring | ENH-100 |
 
 ### CC Version Compatibility

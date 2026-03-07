@@ -410,6 +410,7 @@ function enhancedOnboarding() {
 
     // Phase display mapping
     const phaseDisplay = {
+      'pm': 'PM Discovery',
       'plan': 'Plan',
       'design': 'Design',
       'do': 'Implementation',
@@ -521,6 +522,7 @@ function getTriggerKeywordTable() {
 | report, 보고서, 報告, 报告, informe, rapport, Bericht, rapporto | bkit:report-generator | Generate completion report |
 | help, 도움, 助けて, 帮助, ayuda, aide, Hilfe, aiuto | bkit:starter-guide | Beginner guide |
 | bkend, BaaS, backend service, 백엔드 서비스, バックエンドサービス, 后端服务 | bkit:bkend-expert | Backend/BaaS expert |
+| pm, PRD, product discovery, PM 분석, 제품 기획, PM分析, PM-Analyse, analisi PM | bkit:pm-lead | PM Agent Team analysis |
 
 ### Skill Triggers (Auto-detection)
 | Keywords | Skill | Level |
@@ -642,7 +644,7 @@ let additionalContext = `# bkit Vibecoding Kit v1.6.0 - Session Startup\n\n`;
   // Memory Systems (v1.5.9: auto-memory integration ENH-48)
   additionalContext += `## Memory Systems (v1.5.9)\n`;
   additionalContext += `### bkit Agent Memory (Auto-Active)\n`;
-  additionalContext += `- 14 agents use project scope, 2 agents (starter-guide, pipeline-guide) use user scope\n`;
+  additionalContext += `- 19 agents use project scope, 2 agents (starter-guide, pipeline-guide) use user scope\n`;
   additionalContext += `- No configuration needed\n`;
   additionalContext += `### Claude Code Auto-Memory\n`;
   additionalContext += `- Claude automatically saves useful context to \`~/.claude/projects/*/memory/MEMORY.md\`\n`;
@@ -719,13 +721,14 @@ let additionalContext = `# bkit Vibecoding Kit v1.6.0 - Session Startup\n\n`;
   additionalContext += `## v1.6.0 Enhancements (Skills 2.0 Integration)\n`;
   additionalContext += `- CC recommended version: v2.1.71 (stdin freeze fix, background agent recovery)\n`;
   additionalContext += `- Skills 2.0: context:fork native, frontmatter hooks, Skill Evals, Skill Classification\n`;
-  additionalContext += `- 27 skills classified: 9 Workflow / 16 Capability / 2 Hybrid\n`;
+  additionalContext += `- 28 skills classified: 10 Workflow / 16 Capability / 2 Hybrid\n`;
   additionalContext += `- PDCA document template validation (PostToolUse hook, ENH-103)\n`;
   additionalContext += `- Skill Creator + A/B Testing framework (evals/ directory)\n`;
   additionalContext += `- /loop + Cron PDCA auto-monitoring (CC v2.1.71+)\n`;
   additionalContext += `- Hot reload: SKILL.md changes reflect without session restart\n`;
   additionalContext += `- Wildcard permissions: \`Bash(npm *)\`, \`Bash(git log*)\` patterns\n`;
   additionalContext += `- Background agent recovery: CTO Team bg agents reliable (CC v2.1.71+)\n`;
+  additionalContext += `- PM Agent Team: /pdca pm {feature} for pre-Plan product discovery (5 PM agents)\n`;
   additionalContext += `- 37 consecutive CC compatible releases (v2.1.34~v2.1.71)\n`;
   additionalContext += `\n`;
 

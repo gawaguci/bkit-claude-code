@@ -31,6 +31,11 @@ tools:
 skills:
   - pdca
   - bkit-rules
+hooks:
+  Stop:
+    - type: command
+      command: "node ${CLAUDE_PLUGIN_ROOT}/scripts/pdca-skill-stop.js"
+      timeout: 10000
 ---
 
 ## PM Lead Agent

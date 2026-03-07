@@ -32,6 +32,7 @@ const {
  */
 const SKILL_HANDLERS = {
   'pdca': './pdca-skill-stop.js',
+  'pm-discovery': './pdca-skill-stop.js',  // v1.6.0: PM uses same PDCA stop handler
   'plan-plus': './plan-plus-stop.js',  // v1.5.9: Executive Summary + AskUserQuestion
   'code-review': './code-review-stop.js',
   'phase-8-review': './phase8-review-stop.js',
@@ -59,6 +60,7 @@ const AGENT_HANDLERS = {
   'qa-monitor': './qa-stop.js',
   'team-coordinator': './team-stop.js',  // v1.5.1: Team cleanup on stop
   'cto-lead': './cto-stop.js',           // v1.5.1: CTO session cleanup
+  'pm-lead': './pdca-skill-stop.js',    // v1.6.0: PM lead uses PDCA stop handler
   // design-validator: PreToolUse only, no Stop handler
 };
 

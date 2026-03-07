@@ -50,6 +50,12 @@ const {
  * Auto-transition to next phase on completion
  */
 const PDCA_PHASE_TRANSITIONS = {
+  'pm': {
+    next: 'plan',
+    skill: '/pdca plan',
+    message: 'PM analysis completed. Proceed to Plan phase.',
+    taskTemplate: '[Plan] {feature}'
+  },
   'plan': {
     next: 'design',
     skill: '/pdca design',
@@ -150,7 +156,7 @@ debugLog('Skill:pdca:Stop', 'Input received', {
 
 // Extract action from skill invocation
 // Patterns: "pdca plan", "pdca design", "/pdca analyze", etc.
-const actionPattern = /pdca\s+(plan|design|do|analyze|iterate|report|status|next)/i;
+const actionPattern = /pdca\s+(pm|plan|design|do|analyze|iterate|report|status|next)/i;
 const actionMatch = inputText.match(actionPattern);
 const action = actionMatch ? actionMatch[1].toLowerCase() : null;
 
@@ -169,6 +175,15 @@ debugLog('Skill:pdca:Stop', 'Context extracted', {
 
 // Define next step mapping
 const nextStepMap = {
+  pm: {
+    nextAction: 'plan',
+    message: 'PM analysis and PRD have been generated.',
+    question: 'Proceed to Plan phase?',
+    options: [
+      { label: 'Start Plan (Recommended)', description: `/pdca plan ${feature || '[feature]'}` },
+      { label: 'Later', description: 'Keep current state' }
+    ]
+  },
   plan: {
     nextAction: 'design',
     message: 'Plan document has been generated.',

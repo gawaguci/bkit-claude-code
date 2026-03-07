@@ -22,6 +22,11 @@ tools:
 disallowedTools:
   - Bash
   - Write
+hooks:
+  Stop:
+    - type: command
+      command: "node ${CLAUDE_PLUGIN_ROOT}/scripts/pdca-skill-stop.js"
+      timeout: 10000
 ---
 
 ## PM Strategy Agent
